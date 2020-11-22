@@ -34,13 +34,13 @@ class Caltech(VisionDataset):
             if not spl[0] == 'BACKGROUND_Google':
                 if not spl[0] in self.dictionary:
                     self.dictionary[spl[0]] = id
-                    self.splitted_data[spl[0]] = []
                     id += 1
-                self.splitted_data[spl[0]].append(i)
+                if not spl[0] in self.splitted_data:
+                    self.splitted_data[spl[0]].append(i)
                 i += 1
                 self.values.append(line[:-1])
             line = f.readline()
-            print(line)
+        print(self.splitted_data)
 
 
     def __getitem__(self, index):
@@ -64,9 +64,6 @@ class Caltech(VisionDataset):
 
         for key in self.splitted_data:
             i=0
-            print(key)
-            print(self.splitted_data[key])
-            print()
             for el in self.splitted_data[key]:
                 if i<0.5*len(self.splitted_data[key]):
                     trainIndexes.append(el)
