@@ -22,9 +22,11 @@ class Caltech(VisionDataset):
                            # (split files are called 'train.txt' and 'test.txt')
 
         self.dictionary = {}
+        self.splitted_data = {}
         self.values = []
 
         id = 0;
+        i=0;
         f = open('Caltech101'+'/'+split+'.txt', "r")
         line = f.readline()
         while(line):
@@ -32,9 +34,11 @@ class Caltech(VisionDataset):
             if not spl[0] == 'BACKGROUND_Google':
                 if not spl[0] in self.dictionary:
                     self.dictionary[spl[0]] = id
+                    self.splitted_data[spl[0]] = []
+                    self.splitted_data[spl[0]].append(i)
                     id += 1
-
-            self.values.append(line[:-1])
+                i += 1
+                self.values.append(line[:-1])
             line = f.readline()
 
     def __getitem__(self, index):
@@ -51,3 +55,18 @@ class Caltech(VisionDataset):
 
         length = len(self.values)
         return length
+
+    def split_dataset (self,trainset_size):
+        trainIndexes=[]
+        valIndexes=[]
+        train_perc=1-trainset_size/(2*self.__len__())
+
+        for key in self.splitted_data:
+            i=0
+            for el in self.splitted_data[key]:
+                if i<train_perc*len(self.splitted_data[key]):
+                    trainIndexes.append(el)
+                else :
+                    valIndexes.append(el)
+                i +=1
+        return trainIndexes,valIndexes
