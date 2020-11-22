@@ -47,6 +47,7 @@ class Caltech(VisionDataset):
     def __getitem__(self, index):
         print(index)
         print("/t"+self.values[index]);
+        print(self.dictionary[self.values[index].split('/')[0]])
         if index >= len(self.values):
             return None, None
 
