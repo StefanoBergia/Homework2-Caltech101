@@ -46,7 +46,7 @@ class Caltech(VisionDataset):
 
     def __getitem__(self, index):
 
-        print(self.values[index]+'-'+index)
+        print(str(self.values[index])+"-"+str(index))
         image = pil_loader(self.root+'/'+self.values[index])
         label = self.dictionary[self.values[index].split('/')[0]]
 
