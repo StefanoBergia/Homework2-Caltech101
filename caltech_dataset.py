@@ -59,7 +59,7 @@ class Caltech(VisionDataset):
     def split_dataset (self,testset_size):
         trainIndexes=[]
         valIndexes=[]
-        train_perc=1-testset_size/(2*len(self))
+        train_perc=1-testset_size/(2*len(self.values))
 
         for key in self.splitted_data:
             i=0
