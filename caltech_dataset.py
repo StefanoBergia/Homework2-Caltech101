@@ -13,7 +13,7 @@ def pil_loader(path):
         return img.convert('RGB')
 
 
-class Caltech():
+class Caltech(VisionDataset):
     def __init__(self, root, split='train', transform=None, target_transform=None):
         super(Caltech, self).__init__(root, transform=transform, target_transform=target_transform)
 
