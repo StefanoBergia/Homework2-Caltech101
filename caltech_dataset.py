@@ -46,11 +46,16 @@ class Caltech(VisionDataset):
 
     def __getitem__(self, index):
 
-        if index>=len(self.values):
-            return None,None
-        #print(str(self.values[index])+"-"+str(index))
-        image = pil_loader(self.root+'/'+self.values[index])
-        label = self.dictionary[self.values[index].split('/')[0]]
+        if index >= len(self.values):
+            return None, None
+
+        try:
+            image = pil_loader(self.root + '/' + self.values[index])
+            label = self.dictionary[self.values[index].split('/')[0]]
+        except:
+            print("error index: "+str(index))
+            raise Exception("STA ANDANDO TUTTO MALEEEE")
+
 
         # Applies preprocessing when accessing the image
         if self.transform is not None:
