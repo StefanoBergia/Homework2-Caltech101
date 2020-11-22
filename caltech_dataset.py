@@ -40,6 +40,8 @@ class Caltech(VisionDataset):
                 i += 1
                 self.values.append(line[:-1])
             line = f.readline()
+            print(line)
+
 
     def __getitem__(self, index):
         image = pil_loader(self.root+'/'+self.values[index])
