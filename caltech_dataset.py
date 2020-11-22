@@ -52,12 +52,11 @@ class Caltech(VisionDataset):
         return image, label
 
     def __len__(self):
-
         length = len(self.values)
         return length
 
     @classmethod
-    def split_dataset (self,trainset_size):
+    def split_dataset (trainset_size):
         trainIndexes=[]
         valIndexes=[]
         train_perc=1-trainset_size/(2*self.__len__())
