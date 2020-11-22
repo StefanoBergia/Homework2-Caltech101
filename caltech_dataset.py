@@ -45,9 +45,6 @@ class Caltech(VisionDataset):
 
 
     def __getitem__(self, index):
-        print(index)
-        print("/t"+self.values[index]);
-        print(self.dictionary[self.values[index].split('/')[0]])
         if index >= len(self.values):
             return None, None
 
@@ -68,13 +65,17 @@ class Caltech(VisionDataset):
     def split_dataset(self):
         trainIndexes=[]
         valIndexes=[]
+        t=open('trueTraining.txt', 'w')
+        v=open('trueValidation.txt''w')
 
         for key in self.splitted_data.keys():
             i=0
             for el in self.splitted_data[key]:
                 if i<0.5*len(self.splitted_data[key]):
                     trainIndexes.append(el)
+                    self.values[el]
                 else :
                     valIndexes.append(el)
+                    self.values[el]
                 i +=1
         return (trainIndexes, valIndexes)
