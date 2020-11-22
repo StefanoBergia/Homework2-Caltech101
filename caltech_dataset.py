@@ -65,8 +65,8 @@ class Caltech(VisionDataset):
     def split_dataset(self):
         trainIndexes=[]
         valIndexes=[]
-        t=open('trueTraining.txt', 'w')
-        v=open('trueValidation.txt','w')
+        t=open('Caltech101/trueTraining.txt', 'w')
+        v=open('Caltech101/trueValidation.txt','w')
 
         for key in self.splitted_data.keys():
             i=0
@@ -76,6 +76,6 @@ class Caltech(VisionDataset):
                     t.write(self.values[el]+'\n')
                 else :
                     valIndexes.append(el)
-                    t.write(self.values[el]+'\n')
+                    v.write(self.values[el]+'\n')
                 i +=1
         return (trainIndexes, valIndexes)
