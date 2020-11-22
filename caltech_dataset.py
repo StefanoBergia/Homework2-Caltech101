@@ -69,4 +69,4 @@ class Caltech(VisionDataset):
                 else :
                     valIndexes.append(el)
                 i +=1
-        return trainIndexes, valIndexes
+        return (trainIndexes, valIndexes)
