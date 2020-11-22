@@ -49,12 +49,8 @@ class Caltech(VisionDataset):
         if index >= len(self.values):
             return None, None
 
-        try:
-            image = pil_loader(self.root + '/' + self.values[index])
-            label = self.dictionary[self.values[index].split('/')[0]]
-        except:
-            print("error index: "+str(index))
-            raise Exception("STA ANDANDO TUTTO MALEEEE")
+        image = pil_loader(self.root + '/' + self.values[index])
+        label = self.dictionary[self.values[index].split('/')[0]]
 
 
         # Applies preprocessing when accessing the image
