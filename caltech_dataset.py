@@ -73,9 +73,9 @@ class Caltech(VisionDataset):
             for el in self.splitted_data[key]:
                 if i<0.5*len(self.splitted_data[key]):
                     trainIndexes.append(el)
-                    self.values[el]
+                    t.write(self.values[el])
                 else :
                     valIndexes.append(el)
-                    self.values[el]
+                    t.write(self.values[el])
                 i +=1
         return (trainIndexes, valIndexes)
