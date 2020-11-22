@@ -21,7 +21,7 @@ class Caltech(VisionDataset):
         self.root=root
         self.split = split # This defines the split you are going to use
                            # (split files are called 'train.txt' and 'test.txt')
-        self.splitted_data = []
+        self.splitted_data = {}
         self.dictionary = {}
         self.values = []
 
