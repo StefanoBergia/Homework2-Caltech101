@@ -36,7 +36,8 @@ class Caltech(VisionDataset):
                     self.dictionary[spl[0]] = id
                     id += 1
                 if not spl[0] in self.splitted_data:
-                    self.splitted_data[spl[0]].append(i)
+                    self.splitted_data[spl[0]] = []
+                self.splitted_data[spl[0]].append(i)
                 i += 1
                 self.values.append(line[:-1])
             line = f.readline()
