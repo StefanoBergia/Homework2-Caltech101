@@ -60,12 +60,11 @@ class Caltech(VisionDataset):
         length = len(self.values)
         return length
 
-    @classmethod
-    def split_dataset (self):
+    def split_dataset(self):
         trainIndexes=[]
         valIndexes=[]
 
-        for key in self.splitted_data:
+        for key in self.splitted_data.keys():
             i=0
             for el in self.splitted_data[key]:
                 if i<0.5*len(self.splitted_data[key]):
