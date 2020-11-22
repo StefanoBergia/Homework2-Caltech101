@@ -21,7 +21,7 @@ class Caltech(VisionDataset):
         self.root=root
         self.split = split # This defines the split you are going to use
                            # (split files are called 'train.txt' and 'test.txt')
-
+        self.splitted_data = []
         self.dictionary = {}
         self.values = []
 
@@ -46,7 +46,7 @@ class Caltech(VisionDataset):
 
     def __getitem__(self, index):
 
-        print(str(self.values[index])+"-"+str(index))
+        #print(str(self.values[index])+"-"+str(index))
         image = pil_loader(self.root+'/'+self.values[index])
         label = self.dictionary[self.values[index].split('/')[0]]
 
