@@ -46,6 +46,7 @@ class Caltech(VisionDataset):
 
     def __getitem__(self, index):
         print(index)
+        print("/t"+self.values[index]);
         if index >= len(self.values):
             return None, None
 
