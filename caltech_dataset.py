@@ -36,8 +36,8 @@ class Caltech(VisionDataset):
                     self.dictionary[spl[0]] = id
                     self.splitted_data[spl[0]] = []
                     id += 1
-                i += 1
                 self.splitted_data[spl[0]].append(i)
+                i += 1
                 self.values.append(line[:-1])
             line = f.readline()
 
