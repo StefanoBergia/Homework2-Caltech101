@@ -14,6 +14,7 @@ def pil_loader(path):
 
 
 class Caltech(VisionDataset):
+    splitted_data = {}
     def __init__(self, root, split='train', transform=None, target_transform=None):
         super(Caltech, self).__init__(root, transform=transform, target_transform=target_transform)
 
@@ -22,7 +23,6 @@ class Caltech(VisionDataset):
                            # (split files are called 'train.txt' and 'test.txt')
 
         self.dictionary = {}
-        self.splitted_data = {}
         self.values = []
 
         id = 0;
