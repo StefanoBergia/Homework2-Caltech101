@@ -56,7 +56,7 @@ class Caltech(VisionDataset):
         return length
 
     @classmethod
-    def split_dataset (trainset_size):
+    def split_dataset (self,trainset_size):
         trainIndexes=[]
         valIndexes=[]
         train_perc=1-trainset_size/(2*self.__len__())
