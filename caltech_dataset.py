@@ -25,7 +25,7 @@ class Caltech(VisionDataset):
         self.values = []
 
         id = 0;
-        f = open('Caltech101'+split+'.txt', "r")
+        f = open('Caltech101'+'/'+split+'.txt', "r")
         line = f.readline()
         while(line):
             spl=line.split('/')
