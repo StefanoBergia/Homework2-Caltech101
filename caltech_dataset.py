@@ -35,9 +35,9 @@ class Caltech(VisionDataset):
                 if not spl[0] in self.dictionary:
                     self.dictionary[spl[0]] = id
                     self.splitted_data[spl[0]] = []
-                    self.splitted_data[spl[0]].append(i)
                     id += 1
                 i += 1
+                self.splitted_data[spl[0]].append(i)
                 self.values.append(line[:-1])
             line = f.readline()
 
@@ -56,10 +56,10 @@ class Caltech(VisionDataset):
         return length
 
     @classmethod
-    def split_dataset (self,trainset_size):
+    def split_dataset (self,testset_size):
         trainIndexes=[]
         valIndexes=[]
-        train_perc=1-trainset_size/(2*len(self))
+        train_perc=1-testset_size/(2*len(self))
 
         for key in self.splitted_data:
             i=0
