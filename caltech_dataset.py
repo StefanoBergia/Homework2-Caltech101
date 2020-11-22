@@ -51,7 +51,3 @@ class Caltech(VisionDataset):
 
         length = len(self.values)
         return length
-
-c=Caltech('test');
-print(c.__getitem__(53))
-print(c.__len__())
