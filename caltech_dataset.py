@@ -79,3 +79,7 @@ class Caltech(VisionDataset):
                     v.write(self.values[el]+'\n')
                 i +=1
         return (trainIndexes, valIndexes)
+
+    def return_labels(self):
+        labels=self.dictionary.keys()
+        return labels
